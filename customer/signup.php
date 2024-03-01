@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["customerUsername"]))) {
         $username_err = "Please enter a username.";
     } else {
-        $sql = "SELECT customer_id FROM Customers WHERE username = ?";
+        $sql = "SELECT customer_id FROM customers WHERE username = ?";
 
         if ($stmt = $conn->prepare($sql)) {
             $param_username = trim($_POST["customerUsername"]);
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check input errors before inserting into database
     if (empty($username_err) && empty($password_err) && empty($email_err) && empty($name_err) && empty($mobile_err)) {
         
-        $sql = "INSERT INTO Customers (username, password, email, name, mobile) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO customers (username, password, email, name, mobile) VALUES (?, ?, ?, ?, ?)";
 
         if ($stmt = $conn->prepare($sql)) {
             $param_username = $username;

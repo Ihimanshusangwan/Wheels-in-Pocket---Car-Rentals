@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $vehicle_number = cleanInput($_POST['vehicle_number']);
 
         // Check if the vehicle number already exists
-        $stmt = $conn->prepare("SELECT car_id FROM Cars WHERE vehicle_number = ?");
+        $stmt = $conn->prepare("SELECT car_id FROM cars WHERE vehicle_number = ?");
         $stmt->bind_param("s", $vehicle_number);
         $stmt->execute();
         $stmt->store_result();
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // If no errors, insert into database
-    $stmt = $conn->prepare("INSERT INTO Cars (vehicle_model, body_type, fuel, transmission, vehicle_number, seating_capacity, rent_per_day, agency_id, images) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO cars (vehicle_model, body_type, fuel, transmission, vehicle_number, seating_capacity, rent_per_day, agency_id, images) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param("sssssisss", $vehicle_model, $body_type, $fuel, $transmission, $vehicle_number, $seating_capacity, $rent_per_day, $agency_id, $image);
 

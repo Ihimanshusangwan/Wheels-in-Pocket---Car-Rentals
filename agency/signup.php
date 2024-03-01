@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["agencyUsername"]))) {
         $_SESSION["agencyUsername_err"] = "Please enter a username.";
     } else {
-        $sql = "SELECT agency_id FROM Agencies WHERE username = ?";
+        $sql = "SELECT agency_id FROM agencies WHERE username = ?";
 
         if ($stmt = $conn->prepare($sql)) {
 
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check input errors before inserting into database
     if (empty($_SESSION["agencyUsername_err"]) && empty($_SESSION["agencyPassword_err"]) && empty($_SESSION["agencyEmail_err"]) && empty($_SESSION["agencyName_err"]) && empty($_SESSION["agencyAddress_err"]) && empty($_SESSION["agencyMobile_err"])) {
         // Prepare an insert statement
-        $sql = "INSERT INTO Agencies (username, password, email, name, address, mobile) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO agencies (username, password, email, name, address, mobile) VALUES (?, ?, ?, ?, ?, ?)";
 
         if ($stmt = $conn->prepare($sql)) {
 

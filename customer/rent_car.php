@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $end_date = date('Y-m-d', strtotime($start_date . ' + ' . $number_of_days . ' days'));
 
     // Insert booking into database
-    $stmt = $conn->prepare("INSERT INTO Bookings (car_id, customer_id, start_date, end_date) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO bookings (car_id, customer_id, start_date, end_date) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("iiss", $car_id, $customer_id, $start_date, $end_date);
     
     if ($stmt->execute()) {

@@ -100,7 +100,7 @@ require_once "../config.php";
     <div class="container mt-4">
         <div class="row">
             <?php
-            $query = "SELECT * FROM Cars WHERE agency_id = ? order by car_id desc";
+            $query = "SELECT * FROM cars WHERE agency_id = ? order by car_id desc";
             $stmt = $conn->prepare($query);
             $stmt->bind_param("i", $agency_id);
             $stmt->execute();

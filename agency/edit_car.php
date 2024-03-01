@@ -90,7 +90,7 @@ if ($_FILES['image']['error'] === 0) {
 }
 
     // Update the record in the database
-    $stmt = $conn->prepare("UPDATE Cars SET vehicle_model = ?, body_type = ?, fuel = ?, transmission = ?, vehicle_number = ?, seating_capacity = ?, rent_per_day = ?, images = ? WHERE car_id = ?");
+    $stmt = $conn->prepare("UPDATE cars SET vehicle_model = ?, body_type = ?, fuel = ?, transmission = ?, vehicle_number = ?, seating_capacity = ?, rent_per_day = ?, images = ? WHERE car_id = ?");
     $stmt->bind_param("sssssisss", $vehicle_model, $body_type, $fuel, $transmission, $vehicle_number, $seating_capacity, $rent_per_day, $image, $_POST['car_id']);
     $stmt->execute();
     $stmt->close();
@@ -164,7 +164,7 @@ function generateUniqueImageName($file)
         </div>
     </nav>
     <?php
-    $query = "SELECT * FROM Cars WHERE car_id = ?";
+    $query = "SELECT * FROM cars WHERE car_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $car_id);
     $stmt->execute();

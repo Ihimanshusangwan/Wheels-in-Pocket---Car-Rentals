@@ -11,11 +11,11 @@ if (!isset($_SESSION['customer_id'])) {
 
 // Fetch bookings for the logged-in customer along with agency details
 $customer_id = $_SESSION['customer_id'];
-$stmt = $conn->prepare("SELECT Bookings.booking_id, Cars.vehicle_model, Cars.vehicle_number, Bookings.start_date, Bookings.booking_date, Bookings.end_date, Agencies.name AS agency_name, Agencies.address AS agency_address, Agencies.mobile AS agency_mobile
-                        FROM Bookings
-                        INNER JOIN Cars ON Bookings.car_id = Cars.car_id
-                        INNER JOIN Agencies ON Cars.agency_id = Agencies.agency_id
-                        WHERE Bookings.customer_id = ?");
+$stmt = $conn->prepare("SELECT bookings.booking_id, cars.vehicle_model, cars.vehicle_number, bookings.start_date, bookings.booking_date, bookings.end_date, agencies.name AS agency_name, agencies.address AS agency_address, agencies.mobile AS agency_mobile
+                        FROM bookings
+                        INNER JOIN cars ON bookings.car_id = cars.car_id
+                        INNER JOIN agencies ON cars.agency_id = agencies.agency_id
+                        WHERE bookings.customer_id = ?");
 $stmt->bind_param("i", $customer_id);
 $stmt->execute();
 $result = $stmt->get_result();

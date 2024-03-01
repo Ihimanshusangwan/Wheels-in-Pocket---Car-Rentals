@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate credentials
     if (empty($_SESSION["agencyUsername_err"]) && empty($_SESSION["agencyPassword_err"])) {
-        $sql = "SELECT agency_id, username, password FROM Agencies WHERE username = ?";
+        $sql = "SELECT agency_id, username, password FROM agencies WHERE username = ?";
 
         if ($stmt = $conn->prepare($sql)) {
             $param_username = $username;

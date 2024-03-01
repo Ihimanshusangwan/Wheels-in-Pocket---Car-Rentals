@@ -1,4 +1,4 @@
-CREATE TABLE Customers (
+CREATE TABLE customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE Customers (
     mobile VARCHAR(15) NOT NULL
 );
 
-CREATE TABLE Agencies (
+CREATE TABLE agencies (
     agency_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE Agencies (
 
 );
 
-CREATE TABLE Cars (
+CREATE TABLE cars (
     car_id INT AUTO_INCREMENT PRIMARY KEY,
     vehicle_model VARCHAR(150) NOT NULL,
     body_type VARCHAR(50) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE Cars (
     images TEXT DEFAULT NULL
 );
 
-CREATE TABLE Bookings (
+CREATE TABLE bookings (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
     car_id INT,
     customer_id INT,
