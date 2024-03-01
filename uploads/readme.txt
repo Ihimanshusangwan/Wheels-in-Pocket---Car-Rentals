@@ -1,0 +1,1 @@
+all uploaded images for cars are stored in the /uploads/ directory
