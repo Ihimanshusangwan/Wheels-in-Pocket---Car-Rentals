@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Successful</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .alert {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading"><i class="fas fa-check-circle"></i> Booking saved successfully!</h4>
+            <p>Your booking has been successfully saved.</p>
+            <hr>
+            <p class="mb-0">Redirecting back to home page in <span id="countdown">5</span> seconds...</p>
+        </div>
+    </div>
+    <script>
+        // Countdown timer
+        var countdown = 5;
+        var countdownElement = document.getElementById('countdown');
+
+        var countdownInterval = setInterval(function() {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = '../index.php'; // Redirect to home page
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
