@@ -15,7 +15,7 @@ $stmt = $conn->prepare("SELECT bookings.booking_id, cars.vehicle_model, cars.veh
                         FROM bookings
                         INNER JOIN cars ON bookings.car_id = cars.car_id
                         INNER JOIN agencies ON cars.agency_id = agencies.agency_id
-                        WHERE bookings.customer_id = ?");
+                        WHERE bookings.customer_id = ? order by bookings.booking_id desc");
 $stmt->bind_param("i", $customer_id);
 $stmt->execute();
 $result = $stmt->get_result();
